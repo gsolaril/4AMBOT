@@ -1,0 +1,10 @@
+d_min = 0
+points_2 = tests.copy()
+while (d_min < points_2.std()/2):
+    dist = points_2[1 :] - points_2[: -1]
+    join = dist.argmin()
+    d_min = dist[join]
+    a, b = points_2[[join, join + 1]]
+    points_2[join] = (a + b)/2
+    points_2 = numpy.delete(points_2, join)
+hplot(points_2);

@@ -1,0 +1,27 @@
+while :
+    points_new = numpy.
+    for i, x in enumerate(points_3):
+        n = m = 0  ;  nearby = list()
+        for xi in tests:
+            if (abs(xi - x) >= bw): return
+            m, n = (m*n + xi)/(n + 1), n + 1
+        points_new.append(m)
+    uniques = numpy.unique(points_new)
+
+
+
+
+    points_3 = tests.copy()
+bw = sklearn.cluster.estimate_bandwidth(tests[:, None])/2
+print(bw)
+new = list()
+while True:
+    for x in points_3:
+        within = abs(points_3 - x) <= bw
+        center = points_3[within].mean()
+        new.append(center)
+    new = numpy.unique(new)
+    if numpy.array_equal(new, points_3): break
+    points_3, new = new.copy(), list()
+hplot(points_3);
+print(count, points_3)
